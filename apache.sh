@@ -26,4 +26,6 @@ echo "********************************************************"
 ./configure --with-included-apr --prefix=/home/sysadmin/apache2.5
 make
 sudo make install
-sudo /usr/local/apache2/bin/apachectl start
+sudo /home/sysadmin/apache2.5/bin/apachectl start
+echo "Done!"
+exit 0
