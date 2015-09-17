@@ -22,6 +22,7 @@ echo "[ OK ]"
 echo "********************************************************"
 echo "* Installing: Apache                                   *"
 echo "********************************************************"
+./buildconf
 ./configure --with-included-apr --prefix=/home/sysadmin/apache2.5
 make
 sudo make install
