@@ -15,9 +15,6 @@ cd downloads
 echo ">>Download Apache 2.5 trunk."
 svn checkout http://svn.apache.org/repos/asf/httpd/httpd/trunk httpd-trunk
 cd httpd-trunk
-echo "---------------------------------------------------"
-ls -l
-echo "---------------------------------------------------"
 echo ">>Download APR."
 svn co http://svn.apache.org/repos/asf/apr/apr/trunk srclib/apr
 echo "[ OK ]"
@@ -25,7 +22,6 @@ echo "[ OK ]"
 echo "********************************************************"
 echo "* Installing: Apache                                   *"
 echo "********************************************************"
-pwd
 ./configure --with-included-apr --prefix=/home/sysadmin/apache2.5
 make
 sudo make install
