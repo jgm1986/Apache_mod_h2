@@ -23,7 +23,7 @@ echo "********************************************************"
 echo "* Installing: Apache                                   *"
 echo "********************************************************"
 ./buildconf
-./configure --with-included-apr --prefix=/home/sysadmin/apache2.5
+./configure --with-included-apr --prefix=/home/sysadmin/apache2.5 --enable-h2
 make
 sudo make install
 sudo /home/sysadmin/apache2.5/bin/apachectl start
