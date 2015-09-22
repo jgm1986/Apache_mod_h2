@@ -11,5 +11,6 @@ cd php-5.6.13/
 make
 make test
 sudo make install
+cd ..
 echo "[ OK ]"
 
