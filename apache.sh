@@ -37,7 +37,7 @@ sudo make install
 
 # PHP 5
 php5_sh="$pwd_dir/php5.sh"
-sh php5_sh
+sh $php5_sh
 sudo /home/sysadmin/apache2.5/bin/apachectl start
 echo "Done!"
 exit 0
