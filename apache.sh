@@ -31,7 +31,7 @@ echo "********************************************************"
 echo "* Installing: Apache                                   *"
 echo "********************************************************"
 ./buildconf
-./configure --with-included-apr --prefix=/home/sysadmin/apache2.5 --enable-h2  --with-nghttp2=/home/sysadmin/Apache_mod_h2/downloads/nghttp2-1.3.2/lib/.libs/libnghttp2.so.14
+./configure --with-included-apr --prefix=/home/sysadmin/apache2.5 --enable-h2 --enable-http2 --with-nghttp2=/home/sysadmin/Apache_mod_h2/downloads/nghttp2-1.3.2/lib/.libs/libnghttp2.so.14
 make
 sudo make install
 
