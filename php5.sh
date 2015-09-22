@@ -4,7 +4,6 @@ echo "********************************************************"
 echo "* PHP 6.5.13                                           *"
 echo "********************************************************"
 
-cd downloads
 wget http://es1.php.net/distributions/php-5.6.13.tar.gz
 tar xfv php-5.6.13.tar.gz
 cd php-5.6.13/
