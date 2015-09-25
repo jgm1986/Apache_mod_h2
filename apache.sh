@@ -5,6 +5,7 @@ echo "********************************************************"
 echo "* Downloading data                                     *"
 echo "********************************************************"
 pwd_dir=$(pwd)
+echo $pwd_dir
 if [ -d downloads ] ; then
 	echo " Deleting apache download folder..."
 	sudo rm -r downloads
@@ -20,10 +21,14 @@ echo $openssl_sh
 sh $openssl_sh
 
 # NGHTTP2
-echo $pwd_dir
 nghttp2_sh="$pwd_dir/nghttp2.sh"
 echo $nghttp2_sh
 sh $nghttp2_sh
+
+# cURL
+curl_sh="$pwd_dir/curl.sh"
+echo $curl_sh
+sh $curl_sh
 
 # Apache 2.5-DEV
 echo ">>Download Apache 2.5 trunk."
