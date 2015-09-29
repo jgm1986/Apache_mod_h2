@@ -26,7 +26,6 @@ sudo mv libssl.so.1.0.0 libssl.so.1.0.0.old
 sudo mv libcrypto.so.1.0.0 libcrypto.so.1.0.0.old
 sudo ln -s /usr/local/ssl/lib/libssl.so.1.0.0 libssl.so.1.0.0
 sudo ln -s /usr/local/ssl/lib/libcrypto.so.1.0.0 libcrypto.so.1.0.0
-#      sudo echo "/usr/local/ssl/lib" >> /etc/ld.so.conf
 sudo sh -c "echo '/usr/local/ssl/lib' >> /etc/ld.so.conf"
 sudo ldconfig -v
 downloads_dir="$pwd_dir/downloads"
@@ -52,15 +51,15 @@ echo "[ OK ]"
 echo "********************************************************"
 echo "* Installing: Apache                                   *"
 echo "********************************************************"
+sudo apt-get install libpcre3-dev
 ./buildconf
-#./configure --with-included-apr --prefix=/home/sysadmin/apache2.5 --enable-h2 --enable-http2 --with-nghttp2=/home/sysadmin/Apache_mod_h2/downloads/nghttp2-1.3.2/lib/.libs/libnghttp2.so.14
-./configure --with-included-apr --prefix=/home/sysadmin/apache2.5 --enable-mpms-shared=all --with-crypto --enable-ssl --with-ssl=/usr --enable-h2 --with-nghttp2
+./configure --with-included-apr --prefix=~/apache2.5 --enable-mpms-shared=all --with-crypto --enable-ssl --with-ssl=/usr --enable-h2 --with-nghttp2
 make
 sudo make install
 
 # PHP 5
 php5_sh="$pwd_dir/php5.sh"
 sh $php5_sh
-sudo /home/sysadmin/apache2.5/bin/apachectl start
+sudo ~/apache2.5/bin/apachectl start
 echo "Done!"
 exit 0
