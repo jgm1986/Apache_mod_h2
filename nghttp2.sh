@@ -19,10 +19,12 @@ sudo apt-get install    gcc         \
 wget https://github.com/tatsuhiro-t/nghttp2/releases/download/v1.3.2/nghttp2-1.3.2.tar.gz --no-check-certificate
 tar xfv nghttp2-1.3.2.tar.gz
 cd nghttp2-1.3.2/
+export PKG_CONFIG_PATH=/usr/local/ssl/lib/pkgconfig
+export LD_LIBRARY_PATH=/usr/local/ssl/lib
 autoreconf -i
 automake
 autoconf
-./configure --enable-asio-lib
+./configure --disable-examples
 make
 sudo make install
 cd ..

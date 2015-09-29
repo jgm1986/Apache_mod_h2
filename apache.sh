@@ -20,6 +20,18 @@ openssl_sh="$pwd_dir/openssl.sh"
 echo $openssl_sh
 sh $openssl_sh
 
+# Changes for old OpenSSL
+cd /lib/x86_64-linux-gnu
+sudo mv libssl.so.1.0.0 libssl.so.1.0.0.old
+sudo mv libcrypto.so.1.0.0 libcrypto.so.1.0.0.old
+sudo ln -s /usr/local/ssl/lib/libssl.so.1.0.0 libssl.so.1.0.0
+sudo ln -s /usr/local/ssl/lib/libcrypto.so.1.0.0 libcrypto.so.1.0.0
+#      sudo echo "/usr/local/ssl/lib" >> /etc/ld.so.conf
+sudo sh -c "echo '/usr/local/ssl/lib' >> /etc/ld.so.conf"
+sudo ldconfig -v
+downloads_dir="$pwd_dir/downloads"
+cd $downloads_dir
+
 # NGHTTP2
 nghttp2_sh="$pwd_dir/nghttp2.sh"
 echo $nghttp2_sh
@@ -42,7 +54,7 @@ echo "* Installing: Apache                                   *"
 echo "********************************************************"
 ./buildconf
 #./configure --with-included-apr --prefix=/home/sysadmin/apache2.5 --enable-h2 --enable-http2 --with-nghttp2=/home/sysadmin/Apache_mod_h2/downloads/nghttp2-1.3.2/lib/.libs/libnghttp2.so.14
-./configure --with-included-apr --prefix=/home/sysadmin/apache2.5 --enable-mpms-shared=all --with-crypto --enable-ssl --with-ssl=/usr --enable-h2 --with-nghttp2=/home/sysadmin/Apache_mod_h2/downloads/nghttp2-1.3.2/lib/.libs/libnghttp2.so.14
+./configure --with-included-apr --prefix=/home/sysadmin/apache2.5 --enable-mpms-shared=all --with-crypto --enable-ssl --with-ssl=/usr --enable-h2 --with-nghttp2
 make
 sudo make install
 
