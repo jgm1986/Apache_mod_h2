@@ -19,12 +19,14 @@ cd downloads
 openssl_sh="$pwd_dir/openssl.sh"
 echo $openssl_sh
 sh $openssl_sh
-#export LD_LIBRARY_PATH=/usr/local/ssl/lib
-export LD_LIBRARY_PATH=/usr/lib
 
 # Changes for old OpenSSL
 cd /lib/x86_64-linux-gnu
-#sudo rm -r libssl.so.1.0.0.old libcrypto.so.1.0.0.old
+sudo mv /usr/bin/openssl /usr/bin/openssl.old
+sudo mv /usr/include/openssl /usr/include/openssl.old
+sudo ln -s /usr/local/ssl/bin/openssl /usr/bin/openssl
+sudo ln -s /usr/local/ssl/include/openssl /usr/include/openssl
+sudo ldconfig -v
 sudo mv -f libssl.so.1.0.0 libssl.so.1.0.0.old
 sudo mv -f libcrypto.so.1.0.0 libcrypto.so.1.0.0.old
 sudo ln -s /usr/local/ssl/lib/libssl.so.1.0.0 libssl.so.1.0.0
