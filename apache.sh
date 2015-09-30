@@ -19,6 +19,8 @@ cd downloads
 openssl_sh="$pwd_dir/openssl.sh"
 echo $openssl_sh
 sh $openssl_sh
+#export LD_LIBRARY_PATH=/usr/local/ssl/lib
+export LD_LIBRARY_PATH=/usr/lib
 
 # Changes for old OpenSSL
 cd /lib/x86_64-linux-gnu
