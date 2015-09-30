@@ -53,13 +53,15 @@ echo "* Installing: Apache                                   *"
 echo "********************************************************"
 sudo apt-get install libpcre3-dev
 ./buildconf
-./configure --with-included-apr --prefix=~/apache2.5 --enable-mpms-shared=all --with-crypto --enable-ssl --with-ssl=/usr --enable-h2 --with-nghttp2
+./configure --with-included-apr --prefix=$HOME/apache2.5 --enable-mpms-shared=all --with-crypto --enable-ssl --with-ssl=/usr --enable-h2 --with-nghttp2
 make
 sudo make install
 
 # PHP 5
 php5_sh="$pwd_dir/php5.sh"
 sh $php5_sh
-sudo ~/apache2.5/bin/apachectl start
+
+# Starting Apache
+sudo $HOME/apache2.5/bin/apachectl start
 echo "Done!"
 exit 0
