@@ -22,8 +22,9 @@ sh $openssl_sh
 
 # Changes for old OpenSSL
 cd /lib/x86_64-linux-gnu
-sudo mv libssl.so.1.0.0 libssl.so.1.0.0.old
-sudo mv libcrypto.so.1.0.0 libcrypto.so.1.0.0.old
+#sudo rm -r libssl.so.1.0.0.old libcrypto.so.1.0.0.old
+sudo mv -f libssl.so.1.0.0 libssl.so.1.0.0.old
+sudo mv -f libcrypto.so.1.0.0 libcrypto.so.1.0.0.old
 sudo ln -s /usr/local/ssl/lib/libssl.so.1.0.0 libssl.so.1.0.0
 sudo ln -s /usr/local/ssl/lib/libcrypto.so.1.0.0 libcrypto.so.1.0.0
 sudo sh -c "echo '/usr/local/ssl/lib' >> /etc/ld.so.conf"
@@ -51,7 +52,7 @@ echo "[ OK ]"
 echo "********************************************************"
 echo "* Installing: Apache                                   *"
 echo "********************************************************"
-sudo apt-get install libpcre3-dev
+sudo apt-get install libpcre3-dev -y
 ./buildconf
 ./configure --with-included-apr --prefix=$HOME/apache2.5 --enable-mpms-shared=all --with-crypto --enable-ssl --with-ssl=/usr --enable-h2 --with-nghttp2
 make
