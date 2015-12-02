@@ -22,8 +22,8 @@ sh $openssl_sh
 
 # Changes for old OpenSSL
 cd /lib/x86_64-linux-gnu
-sudo mv /usr/bin/openssl /usr/bin/openssl.old
-sudo mv /usr/include/openssl /usr/include/openssl.old
+sudo mv -f /usr/bin/openssl /usr/bin/openssl.old
+sudo mv -f /usr/include/openssl /usr/include/openssl.old
 sudo ln -s /usr/local/ssl/bin/openssl /usr/bin/openssl
 sudo ln -s /usr/local/ssl/include/openssl /usr/include/openssl
 sudo ldconfig -v
