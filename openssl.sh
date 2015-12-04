@@ -1,12 +1,12 @@
 #!/bin/bash
 set -e
 echo "********************************************************"
-echo "* OpenSSL 1.0.2d                                       *"
+echo "* OpenSSL 1.0.2e                                       *"
 echo "********************************************************"
-wget https://www.openssl.org/source/openssl-1.0.2d.tar.gz --no-check-certificate
+wget https://www.openssl.org/source/openssl-1.0.2e.tar.gz --no-check-certificate
 sudo apt-get install zlib1g-dev
-tar xfv openssl-1.0.2d.tar.gz
-cd openssl-1.0.2d/
+tar xfv openssl-1.0.2e.tar.gz
+cd openssl-1.0.2e/
 #sudo aptitude remove openssl libssl-dev -y
 #./config --prefix=/usr
 #./config --prefix=/usr         \
