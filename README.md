@@ -27,8 +27,8 @@ This script will install the Apache with full HTTP/2 suppor on your home directo
 On the other hand, the following tools will be installed on your system with Apache.
 
  - OpenSSL 1.0.2
- - cURL 7.44
- - NGHTTP2: 1.3.2
+ - cURL 7.48
+ - NGHTTP2: 1.9.2
 
 Finally, Apache 2.5-DEV is installed with PHP5.
 
